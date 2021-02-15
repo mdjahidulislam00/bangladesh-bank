@@ -9,14 +9,77 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    <div class="login_area">
+    <div id="login-area">
         <h1 class="text-center"><b>Welcome to Bangladesh Bank</b></h1></br>
         <div class="submit-area">
-            <h4>Login</h4>
+            <h4><b>Login With your Account</b></h4>
             <input type="email" placeholder="email..." class="form-control" name="" id=""></br>
             <input type="password" placeholder="password..." class="form-control" name="" id=""></br>
-            <button class="btn btn-success">Enter</button>
+            <button id = "submmit" class="btn btn-success">Enter</button>
         </div>
     </div>
+    <div id="transection-area">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="deposit status">
+                    <h4>Deposit</h4>
+                    <h2>$ <span id="current-deposit">00</span></h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="withdraw status">
+                    <h4>Withdraw</h4>
+                    <h2>$00</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="balance status">
+                    <h4>Balance</h4>
+                    <h2>$1400</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="deposit_section">
+                    <h5>Deposit</h5>
+                    <input id= "deposit-amount" type="text" placeholder="amount" class= "form-control"></br>
+                    <button id="deposit-button" class="btn btn-success">Deposit</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="withdraw_section">
+                    <h5>Withdraw</h5>
+                    <input type="text" placeholder="amount" class="form-control"></br>
+                    <button class="btn btn-success">Withdraw</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //This is for Login Area
+        var submitBtn = document.getElementById('submmit');
+        submitBtn.addEventListener('click', function(){
+            var loginArea = document.getElementById('login-area');
+            loginArea.style.display = "none";
+            
+            const transectionArea = document.getElementById('transection-area');
+            transectionArea.style.display = 'block';
+        })
+
+        //This is for Transaction Area
+        const depositButton = document.getElementById('deposit-button');
+        depositButton.addEventListener('click', function(){
+            const depositAmount = document.getElementById('deposit-amount').value;
+            const depositNumber = parseFloat(depositAmount);
+            
+            
+            const currentDeposit = document.getElementById('current-deposit').innerText;
+            const currentDepositNumber = parseFloat(currentDeposit);
+            const totalDeposit = depositNumber + currentDepositNumber;
+            document.getElementById('current-deposit').innerText = totalDeposit;
+            document.getElementById('deposit-amount').value = '';
+        })
+    </script>
 </body>
 </html>

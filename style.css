@@ -1,14 +1,44 @@
 body{
     padding:100px;
 }
-.login_area{
+#login_area{
     padding:50px;
 }
 .text-center{
-    color:coral;
+    color:crimson;
 }
 .submit-area{
     padding:40px;
     box-shadow: 5px 5px 20px gray;
     border-radius: 20px;
+}
+#transection-area{
+    display:none;
+}
+.status{
+    margin:20px;
+    color:white;
+    border-radius:10px;
+    padding:20px;
+}
+.deposit{
+    background-color:slateblue;
+}
+.withdraw{
+    background-color:lightsalmon;
+}
+.balance{
+    background-color:orange;
+}
+.deposit_section{
+    border-radius:10px;
+    box-shadow: 5px 5px 10px gray;
+    margin:30px;
+    padding:25px;
+}
+.withdraw_section{
+    border-radius:10px;
+    box-shadow: 5px 5px 10px gray;
+    margin:30px;
+    padding:25px;
 }
