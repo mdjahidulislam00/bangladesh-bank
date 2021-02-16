@@ -29,13 +29,13 @@
             <div class="col-md-4">
                 <div class="withdraw status">
                     <h4>Withdraw</h4>
-                    <h2>$00</h2>
+                    <h2>$ <span id = "withdrawpre-amount"> 00 </span> </h2>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="balance status">
                     <h4>Balance</h4>
-                    <h2>$1400</h2>
+                    <h2>$ <span id ="balance">1500</span> </h2>
                 </div>
             </div>
         </div>
@@ -50,8 +50,8 @@
             <div class="col-md-6">
                 <div class="withdraw_section">
                     <h5>Withdraw</h5>
-                    <input type="text" placeholder="amount" class="form-control"></br>
-                    <button class="btn btn-success">Withdraw</button>
+                    <input id="withdraw-amount" type="text" placeholder="amount" class="form-control"></br>
+                    <button id="withdraw-button" class="btn btn-success">Withdraw</button>
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
             transectionArea.style.display = 'block';
         })
 
-        //This is for Transaction Area
+        //This is for Deposit Area
         const depositButton = document.getElementById('deposit-button');
         depositButton.addEventListener('click', function(){
             const depositAmount = document.getElementById('deposit-amount').value;
@@ -79,7 +79,34 @@
             const totalDeposit = depositNumber + currentDepositNumber;
             document.getElementById('current-deposit').innerText = totalDeposit;
             document.getElementById('deposit-amount').value = '';
+
+        //This Area is Deposit add to balance
+            const balance = document.getElementById('balance').innerText;
+            const balanceNumber = parseFloat(balance);
+            const addDeposit = balanceNumber+totalDeposit;
+            document.getElementById('balance').innerText = addDeposit;
         })
+        // This is for Withdraw Area
+        const withdrawButton = document.getElementById('withdraw-button');
+            withdrawButton.addEventListener('click', function(){
+            const withdrawAmount = document.getElementById('withdraw-amount').value;
+            const withdrawAmountNumber = parseFloat(withdrawAmount);
+            
+            const withdrawpreAmount = document.getElementById('withdrawpre-amount').innerText;
+            const withdrawpreAmountNumber = parseFloat(withdrawpreAmount);
+            
+            const totalWithdraw = withdrawpreAmountNumber + withdrawAmountNumber;
+            document.getElementById('withdrawpre-amount').innerText = totalWithdraw;
+            document.getElementById('withdraw-amount').value= '';
+        
+        //This Area is withdraw substration to balance
+        const balance = document.getElementById('balance').innerText;
+            const balanceNumber = parseFloat(balance);
+            const substractionBalance = balanceNumber - totalWithdraw;
+            document.getElementById('balance').innerText = substractionBalance;
+
+        })
+
     </script>
 </body>
 </html>
